@@ -1,39 +1,28 @@
-import { useRoutes } from 'react-router-dom'
-import './App.css'
+import { useRoutes } from "react-router-dom";
+import "./App.css";
 
-// Layout general que incluye tu PublicHeader
-import { Layout } from './components/Layout.jsx'
+import { Layout } from "./components/Layout.jsx";
+import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
 
-// Rutas protegidas
-import { ProtectedRoute } from './components/ProtectedRoute.jsx'
+// Público
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Home from "./pages/Home.jsx";
 
-// Páginas públicas
-import Login from './pages/Login.jsx'
-import Register from './pages/Register.jsx'
-import Home from './pages/Home.jsx'
+// Estudiante (pantalla principal)
+import StudentReservations from "./pages/StudentReservations.jsx";
 
-// Páginas estudiante
-import StudentReservations from './pages/StudentReservations.jsx'
-
-// Páginas admin
-import AdminReservations from './pages/AdminReservations.jsx'
-import AdminAulas from './pages/AdminAulas.jsx'
-import AdminReportes from './pages/AdminReportes.jsx'
+// Admin
+import AdminReservations from "./pages/AdminReservations.jsx";
+import AdminAulas from "./pages/AdminAulas.jsx";
+import AdminReportes from "./pages/AdminReportes.jsx";
 
 const routes = [
-  // 🔹 RUTAS PÚBLICAS SIN LAYOUT
+  // Rutas públicas
+  { path: "/login", element: <Login /> },
+  { path: "/registro", element: <Register /> },
   {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '/registro',
-    element: <Register />,
-  },
-
-  // 🔹 HOME PÚBLICO CON LAYOUT (tiene el header)
-  {
-    path: '/',
+    path: "/",
     element: (
       <Layout>
         <Home />
@@ -41,7 +30,7 @@ const routes = [
     ),
   },
 
-  // 🔹 RUTAS DEL ESTUDIANTE (PROTEGIDAS + LAYOUT)
+  // Estudiante
   {
     element: (
       <Layout>
@@ -49,11 +38,11 @@ const routes = [
       </Layout>
     ),
     children: [
-      { path: '/estudiante/reservas', element: <StudentReservations /> },
+      { path: "/estudiante/reservas", element: <StudentReservations /> },
     ],
   },
 
-  // 🔹 RUTAS DE ADMIN (PROTEGIDAS + LAYOUT)
+  // Admin
   {
     element: (
       <Layout>
@@ -61,15 +50,15 @@ const routes = [
       </Layout>
     ),
     children: [
-      { path: '/admin/reservas', element: <AdminReservations /> },
-      { path: '/admin/aulas', element: <AdminAulas /> },
-      { path: '/admin/reportes', element: <AdminReportes /> },
+      { path: "/admin/reservas", element: <AdminReservations /> },
+      { path: "/admin/aulas", element: <AdminAulas /> },
+      { path: "/admin/reportes", element: <AdminReportes /> },
     ],
   },
-]
+];
 
 function App() {
-  return useRoutes(routes)
+  return useRoutes(routes);
 }
 
-export default App
+export default App;

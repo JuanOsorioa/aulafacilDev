@@ -1,0 +1,31 @@
+.private-header {
+  background: #e6f2eb;
+  padding: 14px 24px;
+  border-bottom: 1px solid #d5e8dd;
+}
+
+.ph-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ph-logo {
+  height: 40px;
+}
+
+.ph-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0e3d1e;
+}
+
+.ph-logout {
+  background: #0e3d1e;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}

@@ -17,7 +17,7 @@ export default function Home() {
     <div className="home-container">
       <h1 className="home-title">Bienvenido a AulaFácil</h1>
       <p className="home-subtitle">
-        Reserva aulas, salas de estudio y recursos institucionales de manera ágil, rápida y sencilla.
+        Reserva aulas de estudio institucionales de manera ágil, rápida y sencilla.
       </p>
 
       <div className="home-buttons">
