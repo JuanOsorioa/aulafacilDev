@@ -12,7 +12,9 @@ import "../assets/styles/StudentReservations.css";
 
 function formatISO(value) {
   if (!value) return "";
-  return new Date(value).toISOString().slice(0, 16);
+  const d = new Date(value);
+  const offset = d.getTimezoneOffset() * 60000;
+  return new Date(d.getTime() - offset).toISOString().slice(0, 16);
 }
 
 export default function StudentReservations() {
@@ -136,7 +138,7 @@ export default function StudentReservations() {
     try {
       const data = await getNotificaciones();
       setNotis(data);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
