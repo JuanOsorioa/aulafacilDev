@@ -4,7 +4,9 @@ import { useAuth } from '../context/AuthContext.jsx'
 
 function formatISO(value) {
   if (!value) return ''
-  return new Date(value).toISOString().slice(0, 16)
+  const date = new Date(value)
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
+  return local.toISOString().slice(0, 16)
 }
 
 export default function StudentReservations() {
